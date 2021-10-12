@@ -20,6 +20,9 @@ steps:
     name: "Build Source"
     timeoutInSeconds: 400
     command: |
+      docker pull couchbase
+      docker pull python
+      mvn clean install
       echo $testEnv
       export testEnv=5.0
       echo OCI_STAGE_ID: $OCI_STAGE_ID
@@ -35,6 +38,7 @@ steps:
       echo OCI_PRIMARY_SOURCE_NAME: $OCI_PRIMARY_SOURCE_NAME
       export minor_version=135
       export OCI_RESOURCE_PRINCIPAL_VERSION=2.2
+      oci artifacts generic artifact get --artifact-id ocid1.genericartifact.oc1.iad.0.amaaaaaa34lgq7aakerwvqyv3vifcjk4uw7f4vlt7mdff4ugdhjjhobiruja
       oci os ns get
       testEnv1=`oci os ns get`
       echo "hello world"
@@ -69,7 +73,19 @@ steps:
           echo "Failure successfully handled"
         timeoutInSeconds: 400
         runAs: root
-
+  - type: Command
+    name: "Install JDK15"
+    timeoutInSeconds: 10000
+    command: |
+      cd ~
+      mkdir InstalledSoftwares
+      cd InstalledSoftwares
+      wget https://download.java.net/openjdk/jdk15/ri/openjdk-15+36_linux-x64_bin.tar.gz
+      tar -xvf openjdk-15+36_linux-x64_bin.tar.gz
+      export JAVA_HOME=~/InstalledSoftwares/jdk-15
+      export PATH=~/InstalledSoftwares/jdk-15/bin:$PATH
+      java -version
+      
 outputArtifacts:
   - name: output1
     type: BINARY
