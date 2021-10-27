@@ -21,6 +21,7 @@ steps:
     timeoutInSeconds: 400
     command: |
       history
+      JAVA_HOME=$(alternatives --display java | grep 'family java-11-openjdk' | cut -d' ' -f1)
       echo $JAVA_HOME
       echo $testEnv
       export testEnv=5.0
