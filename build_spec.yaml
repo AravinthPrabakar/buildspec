@@ -17,7 +17,6 @@ runtimeVersions:
   java: java-11-openjdk
 steps:
   - type: Install
-    name: "Installer Step"
     timeoutInSeconds: 400
     runAs: root
     runtimeVersions:
