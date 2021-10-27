@@ -17,6 +17,7 @@ runtimeVersions:
   java: java-11-openjdk
 steps:
   - type: Install
+    name: "Install Step"
     timeoutInSeconds: 400
     runAs: root
     runtimeVersions:
@@ -62,6 +63,7 @@ steps:
       javac HelloWorld.java
     onFailure:
       - type: Command
+        timeoutInSeconds: 400
         command: |
           echo "Handling Failure"
           echo "Failure successfully handled"
@@ -79,6 +81,7 @@ steps:
       docker run iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0
     onFailure:
       - type: Command
+        timeoutInSeconds: 400
         command: |
           echo "Handling Failure"
           echo "Failure successfully handled"
