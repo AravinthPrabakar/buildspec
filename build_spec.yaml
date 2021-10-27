@@ -20,6 +20,7 @@ steps:
     name: "Build Source"
     timeoutInSeconds: 400
     command: |
+      history
       echo $JAVA_HOME
       echo $testEnv
       export testEnv=5.0
