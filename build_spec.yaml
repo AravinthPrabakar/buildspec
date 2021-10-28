@@ -70,6 +70,22 @@ steps:
           echo "Failure successfully handled"
         timeoutInSeconds: 400
         runAs: root
+  - type: Command
+    name: "Test Runtime"
+    timeoutInSeconds: 400
+    command: |
+      echo "Testing Runtime to next step"
+      echo $JAVA_HOME
+    onFailure:
+      - type: Command
+        timeoutInSeconds: 400
+        command: |
+          echo "Handling Failure"
+          echo "Failure successfully handled"
+        timeoutInSeconds: 400
+        runAs: root
+
+
 outputArtifacts:
   - name: output1
     type: BINARY
