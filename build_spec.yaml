@@ -13,8 +13,6 @@ env:
 # inputArtifacts:
 #   - name: hello-dev-jar
 #     location: /workspace/Source1/hello123.class
-runtimeVersions:
-  java: java-11-openjdk
 steps:
   - type: Install
     name: "Install Runtime"
