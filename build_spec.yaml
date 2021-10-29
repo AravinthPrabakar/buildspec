@@ -18,9 +18,9 @@ steps:
     name: "Install Runtime"
     timeoutInSeconds: 400
     runtimeVersions:
-      java: java-11-openjdk
+      java: 11
     command: |
-      echo "In Test Command"
+      echo "In Install Command"
       echo $JAVA_HOME
       java -version
     onFailure:
