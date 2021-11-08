@@ -18,7 +18,7 @@ steps:
     name: "Install Runtime"
     timeoutInSeconds: 400
     runtimeVersions:
-      java: 1.8.0
+      java: 11
     command: |
       echo "In Install Command"
       echo $JAVA_HOME
