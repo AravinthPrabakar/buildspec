@@ -14,27 +14,11 @@ env:
 #   - name: hello-dev-jar
 #     location: /workspace/Source1/hello123.class
 steps:
-  - type: Install
-    name: "Install Runtime"
-    timeoutInSeconds: 400
-    runtimeVersions:
-      java: 11
-    command: |
-      echo "In Install Command"
-      echo $JAVA_HOME
-      java -version
-    onFailure:
-      - type: Command
-        timeoutInSeconds: 400
-        command: |
-          echo "Handling Failure"
-          echo "Failure successfully handled"
-        timeoutInSeconds: 400
-        runAs: root
-
   - type: Command
     name: "Build Source"
     timeoutInSeconds: 400
+    runtimeVersions:
+      java: 11
     command: |
       echo $testEnv
       export testEnv=5.0
