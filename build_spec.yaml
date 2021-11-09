@@ -18,7 +18,7 @@ steps:
     name: "Build Source"
     timeoutInSeconds: 400
     runtimeVersions:
-      java: 1.8.0
+      java: 11
     command: |
       echo $testEnv
       export testEnv=5.0
