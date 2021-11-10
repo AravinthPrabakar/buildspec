@@ -21,6 +21,10 @@ steps:
       java: 11
       maven: 3.8.1
     command: |
+      mvn --version
+      echo $MAVEN_VERSION
+      echo $MAVEN_HOME
+      echo $PATH
       echo $testEnv
       export testEnv=5.0
       echo OCI_STAGE_ID: $OCI_STAGE_ID
