@@ -19,6 +19,7 @@ steps:
     timeoutInSeconds: 400
     runtimeVersions:
       java: 11
+      maven: 3.8.1
     command: |
       echo $testEnv
       export testEnv=5.0
