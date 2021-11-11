@@ -18,8 +18,8 @@ steps:
     name: "Build Source"
     timeoutInSeconds: 400
     runtimeVersions:
-      java: 1.8.0
-      maven: 3.6.3
+      java: 11
+      maven: 3.8.1
     command: |
       mvn --version
       java -version
